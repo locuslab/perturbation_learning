@@ -1,0 +1,42 @@
+{
+  "attack": {
+      "type": "cvae_attack", 
+      "max_dist": 17, 
+      "alpha": 1, 
+      "niters": 50,
+      "model": {
+          "type": "mi_unet", 
+          "output_distribution": "gaussian", 
+          "chs": [64, 128, 256, 512, 1024], 
+          "latent_dim": [128, 64, 32, 16, 16],
+          "dim": [125, 187], 
+          "bilinear": true
+      },
+      "checkpoint":"experiments/mi_unet_cropflip/checkpoints/checkpoint_999.pth"
+  },
+  "topk": 1, 
+  "criterion": "miou", 
+
+  "training": {
+      "batch_size": 128
+  },
+
+  "eval": {
+      "batch_size": 128
+  },
+
+  "dataset": {
+      "type": "multi_illumination",
+      "data_path": "../data/multi_illumination", 
+      "mode": "all", 
+      "split": "drylab", 
+      "cropflip": {
+          "pad": 10, 
+          "crop": [125,187], 
+          "flip": true
+      }, 
+      "mip": 5
+  },
+
+  "device": "cuda"
+}

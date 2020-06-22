@@ -1,0 +1,30 @@
+{
+  "model": {
+    "output_distribution": "bernoulli"
+  },
+  "oae": {
+      "max_dist": 14, 
+      "alpha": 0.7, 
+      "niters": 50
+   },
+  "ae": {
+      "max_dist": 14, 
+      "alpha": 0.7, 
+      "niters": 50
+   },
+
+  "training": {
+      "batch_size": 128
+  },
+  "eval": {
+      "batch_size": 128
+  },
+
+  "dataset": {
+      "type": "mnist",
+      "data_path": "~/data", 
+      "padding": 7
+  },
+
+  "device": "cuda"
+}

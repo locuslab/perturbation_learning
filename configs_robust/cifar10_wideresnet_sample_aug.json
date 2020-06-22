@@ -1,0 +1,62 @@
+  
+{
+  "model": {
+      "model_dir":"cifar10_wideresnet_sample_aug",
+      "type": "wideresnet",
+      "layers": 28, 
+      "width_factor": 10, 
+      "n_classes": 10, 
+      "normalize": true
+  }, 
+  "attack": {
+      "type": "none"
+  },
+
+  "output_dir": "./robustness_experiments",
+
+  "training": {
+      "optimizer": "adam", 
+      "epochs": 100, 
+      "batch_size": 128,
+      "step_size_schedule": [[0,40,100], [0, 0.2, 0]],
+      "momentum": 0.9,
+      "weight_decay": 0, 
+      "log_interval": 100, 
+      "checkpoint_interval": 20
+  },
+
+  "eval": {
+      "batch_size": 128, 
+      "sample_interval": 1, 
+      "plot_segmentation": false
+  },
+
+  "dataset": {
+      "type": "cifar10c_nooriginal",
+      "data_path": "../data", 
+      "cropflip": {
+          "pad": 4, 
+          "crop": [32,32], 
+          "flip": true
+      },
+      "corruptions":[
+          "defocus_blur", 
+          "glass_blur", 
+          "motion_blur", 
+          "zoom_blur", 
+          "snow", 
+          "frost", 
+          "fog", 
+          "brightness", 
+          "contrast", 
+          "elastic_transform", 
+          "pixelate", 
+          "jpeg_compression"
+      ], 
+      "severity":[5],
+      "k": 12, 
+      "building": false
+  }, 
+
+  "device": "cuda"
+}

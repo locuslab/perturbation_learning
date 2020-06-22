@@ -1,0 +1,38 @@
+{
+  "attack": {
+      "type": "cvae_attack", 
+      "max_dist": 3.9, 
+      "alpha": 0.195, 
+      "niters": 50,
+      "model": {
+          "type": "cifar10_rectangle", 
+          "output_distribution": "gaussian", 
+          "latent_dim": 512,
+          "nblocks": 4, 
+          "big_ch": 64, 
+          "small_ch": 16, 
+          "kernel_size": 3, 
+          "padding": 1
+      }, 
+      "checkpoint": "experiments/cifar10_c_rectangle_long_cropflip/checkpoints/checkpoint_latest.pth" 
+   },
+  "topk": 1, 
+  "criterion": "cross_entropy", 
+
+  "training": {
+      "batch_size": 128
+  },
+
+  "eval": {
+      "batch_size": 128
+  },
+
+  "dataset": {
+      "type": "cifar10",
+      "data_path": "../data",
+      "transforms": "cropflip"
+  }, 
+
+
+  "device": "cuda"
+}

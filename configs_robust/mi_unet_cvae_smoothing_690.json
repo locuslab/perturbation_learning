@@ -1,0 +1,57 @@
+  
+{
+  "model": {
+      "model_dir":"mi_unet_cvae_smoothing_690",
+      "type": "unet",
+      "n_channels": 3,
+      "n_classes": 36,
+      "bilinear": true
+  }, 
+  "attack": {
+      "type": "cvae_gaussian", 
+      "sigma": 6.90,
+      "model": {
+          "type": "mi_unet", 
+          "output_distribution": "gaussian", 
+          "chs": [64, 128, 256, 512, 1024], 
+          "latent_dim": [128, 64, 32, 16, 16],
+          "dim": [125, 187], 
+          "bilinear": true
+      },
+      "checkpoint":"experiments/mi_unet_cropflip/checkpoints/checkpoint_999.pth"
+  },
+
+  "output_dir": "./robustness_experiments",
+
+  "training": {
+      "optimizer": "adam", 
+      "epochs": 400, 
+      "batch_size": 128,
+      "step_size_schedule": [[0,160,400], [0, 0.01, 0]],
+      "momentum": 0.9,
+      "weight_decay": 0, 
+      "log_interval": 2, 
+      "checkpoint_interval": 50
+  },
+
+  "eval": {
+      "batch_size": 128, 
+      "sample_interval": 50, 
+      "plot_segmentation": true
+  },
+
+  "dataset": {
+      "type": "multi_illumination",
+      "data_path": "../data/multi_illumination", 
+      "mode": "aug", 
+      "split": "drylab", 
+      "cropflip": {
+          "pad": 10, 
+          "crop": [125,187], 
+          "flip": true
+      }, 
+      "mip": 5
+  }, 
+
+  "device": "cuda"
+}

@@ -1,0 +1,23 @@
+{
+  "attack": {
+      "type": "none"
+  },
+  "topk": 1, 
+  "criterion": "cross_entropy",
+
+
+  "training": {
+      "batch_size": 128
+  },
+
+  "eval": {
+      "batch_size": 128
+  },
+
+
+  "dataset": {
+      "type": "cifar10",
+      "data_path": "../data",
+      "transforms": "cropflip"
+  } 
+}

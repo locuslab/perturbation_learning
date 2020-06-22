@@ -1,0 +1,43 @@
+  
+{
+  "model": {
+      "model_dir":"mnist_stn_rts_limited_1",
+      "type": "mnist_stn", 
+      "output_distribution": "bernoulli"
+  }, 
+  "perturbation" : {
+      "train_type": "dataloader", 
+      "test_type": "rts", 
+      "angle": 45, 
+      "scale": [0.7,1.3],
+      "crop_sz": 42, 
+      "padding": 7
+  },
+  "output_dir": "./experiments",
+
+  "training": {
+      "optimizer": "adam",
+      "epochs": 100, 
+      "batch_size": 128,
+      "step_size_schedule": [[0,40,100], [0, 0.0008, 0]],
+      "beta_schedule": [[0, 10, 50, 100], [0, 0.01, 1, 1]],
+      "momentum": 0,
+      "weight_decay": 0, 
+      "log_interval": 100, 
+      "checkpoint_interval": 10
+  },
+
+  "eval": {
+      "batch_size": 128, 
+      "sample_interval": 1
+  },
+
+  "dataset": {
+      "type": "mnist_rts_limited",
+      "data_path": "~/data", 
+      "padding": 7,
+      "k": 1
+  }, 
+
+  "device": "cuda"
+}

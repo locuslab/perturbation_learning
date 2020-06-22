@@ -1,0 +1,54 @@
+  
+{
+  "model": {
+      "model_dir":"mi_unet_mip5",
+      "type": "mi_unet", 
+      "output_distribution": "gaussian", 
+      "chs": [64, 128, 256, 512, 1024], 
+      "latent_dim": [128, 64, 32, 16, 16],
+      "dim": [125, 187], 
+      "bilinear": true, 
+      "pool": [[125,187], 
+               [62, 93],
+               [31, 46],
+               [15, 23],
+               [7, 11]]
+  }, 
+  "perturbation" : {
+      "train_type": "dataloader", 
+      "test_type": "dataloader"
+  },
+  "output_dir": "./experiments",
+
+  "training": {
+      "optimizer": "adam", 
+      "epochs": 1000, 
+      "batch_size": 64,
+      "step_size_schedule": [[0,400,1000], [0.0001, 0.001, 0]],
+      "beta_schedule": [[0,400,1000], [0,1,1]],
+      "momentum": 0.9,
+      "weight_decay": 5e-7, 
+      "log_interval": 4, 
+      "checkpoint_interval": 100
+  },
+
+  "eval": {
+      "batch_size": 64, 
+      "sample_interval": 1
+  },
+
+  "dataset": {
+      "type": "multi_illumination",
+      "data_path": "../data/multi_illumination", 
+      "split": "drylab",
+      "mode": "aug", 
+      "cropflip": {
+          "pad": 10, 
+          "crop": [125,187], 
+          "flip": true
+      }, 
+      "mip": 5
+  }, 
+
+  "device": "cuda"
+}

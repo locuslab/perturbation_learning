@@ -1,0 +1,53 @@
+  
+{
+  "model": {
+      "model_dir":"cifar10_wideresnet_cvae_smoothing_319",
+      "type": "wideresnet",
+      "layers": 28, 
+      "width_factor": 10, 
+      "n_classes": 10, 
+      "normalize": true
+  }, 
+  "attack": {
+      "type": "cvae_gaussian", 
+      "sigma": 3.19, 
+      "model": {
+          "type": "cifar10_rectangle", 
+          "output_distribution": "gaussian", 
+          "latent_dim": 512,
+          "nblocks": 4, 
+          "big_ch": 64, 
+          "small_ch": 16, 
+          "kernel_size": 3, 
+          "padding": 1
+      }, 
+      "checkpoint": "experiments/cifar10_c_rectangle_long_cropflip/checkpoints/checkpoint_latest.pth" 
+  },
+
+  "output_dir": "./robustness_experiments",
+
+  "training": {
+      "optimizer": "adam", 
+      "epochs": 100, 
+      "batch_size": 128,
+      "step_size_schedule": [[0,40,100], [0, 0.2, 0]],
+      "momentum": 0.9,
+      "weight_decay": 0, 
+      "log_interval": 100, 
+      "checkpoint_interval": 20
+  },
+
+  "eval": {
+      "batch_size": 128, 
+      "sample_interval": 1, 
+      "plot_segmentation": false
+  },
+
+  "dataset": {
+      "type": "cifar10",
+      "data_path": "../data",
+      "transforms": "cropflip"
+  }, 
+
+  "device": "cuda"
+}

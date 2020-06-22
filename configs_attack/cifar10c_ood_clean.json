@@ -1,0 +1,35 @@
+{
+  "attack": {
+      "type": "none"
+  },
+  "topk": 1, 
+  "criterion": "cross_entropy",
+  "device": "cuda",
+
+
+  "training": {
+      "batch_size": 128
+  },
+
+  "eval": {
+      "batch_size": 128
+  },
+
+
+  "dataset": {
+      "type": "cifar10c_all_nooriginal",
+      "data_path": "../data", 
+      "corruptions":[
+          "gaussian_blur", 
+          "spatter", 
+          "saturate"
+      ], 
+      "severity":[5],
+      "k": 3,
+      "cropflip": {
+          "pad": 4, 
+          "crop": [32,32], 
+          "flip": true
+      }
+  }
+}

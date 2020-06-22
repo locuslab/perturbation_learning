@@ -1,0 +1,40 @@
+  
+{
+  "model": {
+      "model_dir":"mnist_fc_linf",
+      "type": "mnist_fc", 
+      "output_distribution": "bernoulli"
+  }, 
+  "perturbation" : {
+      "train_type": "linfinity", 
+      "test_type": "linfinity", 
+      "epsilon": 0.3, 
+      "min": 0, 
+      "max": 1
+  },
+  "output_dir": "./experiments",
+
+  "training": {
+      "optimizer": "adam",
+      "epochs": 20, 
+      "batch_size": 128,
+      "step_size_schedule": [[0,10,15,20], [0, 0.001, 0.0005, 0.0001]],
+      "beta_schedule": [[0, 5, 20], [0,1e-3, 1e-2]],
+      "momentum": 0,
+      "weight_decay": 0, 
+      "log_interval": 100, 
+      "checkpoint_interval": 10
+  },
+
+  "eval": {
+      "batch_size": 128, 
+      "sample_interval": 1
+  },
+
+  "dataset": {
+      "type": "mnist",
+      "data_path": "~/data", 
+      "padding": 0
+  },
+  "device": "cuda"
+}

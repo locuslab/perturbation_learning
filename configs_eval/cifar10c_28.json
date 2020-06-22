@@ -1,0 +1,50 @@
+{
+  "model": {
+    "output_distribution": "gaussian"
+  },
+  "oae": {
+      "max_dist": 28, 
+      "alpha": 1.4, 
+      "niters": 50
+   },
+  "ae": {
+      "max_dist": 28, 
+      "alpha": 1.4, 
+      "niters": 50
+   },
+
+  "training": {
+      "batch_size": 128
+  },
+  "eval": {
+      "batch_size": 128
+  },
+
+  "dataset": {
+      "type": "cifar10c_all",
+      "data_path": "../data", 
+      "corruptions":[
+          "defocus_blur", 
+          "glass_blur", 
+          "motion_blur", 
+          "zoom_blur", 
+          "snow", 
+          "frost", 
+          "fog", 
+          "brightness", 
+          "contrast", 
+          "elastic_transform", 
+          "pixelate", 
+          "jpeg_compression"
+      ], 
+      "severity":[5],
+      "k": 12,
+      "cropflip": {
+          "pad": 4, 
+          "crop": [32,32], 
+          "flip": true
+      }
+  },
+
+  "device": "cuda"
+}

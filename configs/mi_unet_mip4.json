@@ -1,0 +1,55 @@
+  
+{
+  "model": {
+      "model_dir":"mi_unet_mip4",
+      "type": "mi_unet", 
+      "output_distribution": "gaussian", 
+      "chs": [64, 128, 256, 512, 1024], 
+      "latent_dim": [128, 64, 32, 16, 16],
+      "dim": [125, 187], 
+      "bilinear": true, 
+      "pool": [[125,187], 
+               [62, 93],
+               [31, 46],
+               [15, 23],
+               [7, 11]], 
+      "load": "experiments/mi_unet_mip5/checkpoints/checkpoint_latest.pth"
+  }, 
+  "perturbation" : {
+      "train_type": "dataloader", 
+      "test_type": "dataloader"
+  },
+  "output_dir": "./experiments",
+
+  "training": {
+      "optimizer": "adam", 
+      "epochs": 100, 
+      "batch_size": 32,
+      "step_size_schedule": [[0,40,100], [0.000025, 0.00025, 0]],
+      "beta_schedule": [[0,40,100], [1,1,1]],
+      "momentum": 0.9,
+      "weight_decay": 5e-7, 
+      "log_interval": 4, 
+      "checkpoint_interval": 20
+  },
+
+  "eval": {
+      "batch_size": 64, 
+      "sample_interval": 5
+  },
+
+  "dataset": {
+      "type": "multi_illumination",
+      "data_path": "../data/multi_illumination", 
+      "split": "drylab",
+      "mode": "aug", 
+      "cropflip": {
+          "pad": 20, 
+          "crop": [250,375], 
+          "flip": true
+      }, 
+      "mip": 4
+  }, 
+
+  "device": "cuda"
+}

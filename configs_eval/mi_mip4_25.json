@@ -1,0 +1,37 @@
+{
+  "model": {
+    "output_distribution": "gaussian"
+  },
+  "oae": {
+      "max_dist": 25, 
+      "alpha": 1.25, 
+      "niters": 50
+   },
+  "ae": {
+      "max_dist": 25, 
+      "alpha": 1.25, 
+      "niters": 50
+   },
+
+  "training": {
+      "batch_size": 64
+  },
+  "eval": {
+      "batch_size": 64
+  },
+  
+  "dataset": {
+      "type": "multi_illumination",
+      "data_path": "../data/multi_illumination", 
+      "mode": "all", 
+      "split": "drylab", 
+      "cropflip": {
+          "pad": 20, 
+          "crop": [250,375], 
+          "flip": true
+      }, 
+      "mip": 4
+  },
+
+  "device": "cuda"
+}
