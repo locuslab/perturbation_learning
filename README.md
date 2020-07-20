@@ -1,10 +1,16 @@
 # Learning perturbation sets for robust machine learning
-*A repository that implements  perturbation learning code, capable of learning perturbation sets from data for MNIST, CIFAR10, and Multi-Illumination datasets. Created by [Eric Wong](https://riceric22.github.io) with [Zico Kolter](http://zicokolter.com), with the code structure loosely based off of the [robustness repostory here](https://github.com/MadryLab/robustness). See our paper on arXiv [here][paper].*
+*A repository that implements  perturbation learning code, capable of learning perturbation sets from data for MNIST, CIFAR10, and Multi-Illumination datasets. Created by [Eric Wong](https://riceric22.github.io) with [Zico Kolter](http://zicokolter.com), with the code structure loosely based off of the [robustness repostory here](https://github.com/MadryLab/robustness). See our paper on arXiv [here][paper] and our corresponding [blog post][blog].*
 
-[paper]: https://arxiv.org/abs/TODO
+[paper]: https://arxiv.org/abs/2007.08450
+[blog]: https://locuslab.github.io/2020-07-20-perturbation/
 
 ## News
-+ TODO paper and repository release
++ 7/16/2020 - Paper and blog post released 
+
+# Overview
+One of the core tenents of making machine learning models that are robust to adversarial attacks is to define the threat model that contains all possible perturbations, which is critical for performing a proper robustness evaluation. However, well-defined threat models are have been largely limited to mathematically nice sets that can be described a priori, such as the Lp ball or Wasserstein metric, whereas many real-world transformations may be impossible to define mathematically. This work aims to bridge this gap, by learning perturbation sets as being generated from an Lp ball in an underlying latent space. This simple characterization of a perturbation set allows us to leverage state of the art approaches in adversarial training directly in the latent space, while at the same time capturing complex real-world perturbations. 
+
+# Repository information
 
 ## Configuration files
 + `configs/` contains configuration files to train perturbation sets 
