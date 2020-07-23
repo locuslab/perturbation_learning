@@ -32,8 +32,11 @@ We include some convenience scripts for generating the CIFAR10 common corruption
 + CIFAR10 common corruptions: https://github.com/hendrycks/robustness
 + Multi illumination: https://github.com/lmurmann/multi_illumination
 
-## Model weights
-+ Pretrained model weights for all learned perturbation sets and downstream robustly trained classifiers can be found here: https://drive.google.com/drive/folders/1JEY2wgtERcj7TjCGDzPfZ_QAsDYIAJgI?usp=sharing
+## Model weights / datasets
+We have released the following files here: https://drive.google.com/drive/folders/1azgGxCHNuLO2ef_FHkxl-o8WNn-mWc1v?usp=sharing
++ Pretrained model weights for all learned perturbation sets 
++ Pretrained model weights for downstream robustly trained classifiers
++ A copy of the CIFAR10C dataset (both train and test)
 
 Within this folder, `perturbation_sets/` contains the model weights for the following learned perturbation sets: 
 + CIFAR10 common corruptions learned perturbation sets using the three strategies from Table 5+6
