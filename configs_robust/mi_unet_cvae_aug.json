@@ -15,7 +15,12 @@
           "chs": [64, 128, 256, 512, 1024], 
           "latent_dim": [128, 64, 32, 16, 16],
           "dim": [125, 187], 
-          "bilinear": true
+          "bilinear": true, 
+          "pool": [[125,187], 
+                  [62, 93],
+                  [31, 46],
+                  [15, 23],
+                  [7, 11]]
       },
       "checkpoint":"experiments/mi_unet/checkpoints/checkpoint_999.pth"
   },

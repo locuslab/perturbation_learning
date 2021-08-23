@@ -57,17 +57,17 @@ python robust_train.py --config-robust configs_robust/cifar10_wideresnet_cvae_sm
 python robust_train.py --config-robust configs_robust/cifar10_wideresnet_cvae_smoothing_319.json 
 
 # Evaluate performance and get certified radius of smoothed classifiers (Table 7 of paper)
-python robust_train.py --config-robust configs_robust/cifar10_wideresnet_cvae_smoothing_084.json --config-attack configs_attack/cifar10c_smooth_perturbed_084.json
-python robust_train.py --config-robust configs_robust/cifar10_wideresnet_cvae_smoothing_084.json --config-attack configs_attack/cifar10c_smooth_ood_084.json
-python robust_train.py --config-robust configs_robust/cifar10_wideresnet_cvae_smoothing_084.json --config-attack configs_attack/cifar10c_smooth_certify_084.json
+python robust_eval.py --config-robust configs_robust/cifar10_wideresnet_cvae_smoothing_084.json --config-attack configs_attack/cifar10c_smooth_perturbed_084.json
+python robust_eval.py --config-robust configs_robust/cifar10_wideresnet_cvae_smoothing_084.json --config-attack configs_attack/cifar10c_smooth_ood_084.json
+python robust_eval.py --config-robust configs_robust/cifar10_wideresnet_cvae_smoothing_084.json --config-attack configs_attack/cifar10c_smooth_certify_084.json
 
-python robust_train.py --config-robust configs_robust/cifar10_wideresnet_cvae_smoothing_122.json --config-attack configs_attack/cifar10c_smooth_perturbed_122.json
-python robust_train.py --config-robust configs_robust/cifar10_wideresnet_cvae_smoothing_122.json --config-attack configs_attack/cifar10c_smooth_ood_122.json
-python robust_train.py --config-robust configs_robust/cifar10_wideresnet_cvae_smoothing_122.json --config-attack configs_attack/cifar10c_smooth_certify_122.json
+python robust_eval.py --config-robust configs_robust/cifar10_wideresnet_cvae_smoothing_122.json --config-attack configs_attack/cifar10c_smooth_perturbed_122.json
+python robust_eval.py --config-robust configs_robust/cifar10_wideresnet_cvae_smoothing_122.json --config-attack configs_attack/cifar10c_smooth_ood_122.json
+python robust_eval.py --config-robust configs_robust/cifar10_wideresnet_cvae_smoothing_122.json --config-attack configs_attack/cifar10c_smooth_certify_122.json
 
-python robust_train.py --config-robust configs_robust/cifar10_wideresnet_cvae_smoothing_319.json --config-attack configs_attack/cifar10c_smooth_perturbed_319.json
-python robust_train.py --config-robust configs_robust/cifar10_wideresnet_cvae_smoothing_319.json --config-attack configs_attack/cifar10c_smooth_ood_319.json
-python robust_train.py --config-robust configs_robust/cifar10_wideresnet_cvae_smoothing_319.json --config-attack configs_attack/cifar10c_smooth_certify_319.json
+python robust_eval.py --config-robust configs_robust/cifar10_wideresnet_cvae_smoothing_319.json --config-attack configs_attack/cifar10c_smooth_perturbed_319.json
+python robust_eval.py --config-robust configs_robust/cifar10_wideresnet_cvae_smoothing_319.json --config-attack configs_attack/cifar10c_smooth_ood_319.json
+python robust_eval.py --config-robust configs_robust/cifar10_wideresnet_cvae_smoothing_319.json --config-attack configs_attack/cifar10c_smooth_certify_319.json
 
 ## Multi Illumination
 # Train illumination perturbation sets at multiple resolutions (Table 8+9 of paper)
@@ -87,25 +87,25 @@ python robust_train.py --config-robust configs_robust/mi_unet_cvae_aug.json
 python robust_train.py --config-robust configs_robust/mi_unet_cvae_attack.json
 
 # Evaluate robustness of segmentation model to lighting perturbations (Table 10 of paper)
-python robust_train.py --config-robust configs_robust/mi_unet_sample_first.json --config-attack configs_attack/mi_clean.json
-python robust_train.py --config-robust configs_robust/mi_unet_sample_first.json --config-attack configs_attack/mi_cvae_pgd_735.json
-python robust_train.py --config-robust configs_robust/mi_unet_sample_first.json --config-attack configs_attack/mi_cvae_pgd_881.json
-python robust_train.py --config-robust configs_robust/mi_unet_sample_first.json --config-attack configs_attack/mi_cvae_pgd.json
+python robust_eval.py --config-robust configs_robust/mi_unet_sample_first.json --config-attack configs_attack/mi_clean.json
+python robust_eval.py --config-robust configs_robust/mi_unet_sample_first.json --config-attack configs_attack/mi_cvae_pgd_735.json
+python robust_eval.py --config-robust configs_robust/mi_unet_sample_first.json --config-attack configs_attack/mi_cvae_pgd_881.json
+python robust_eval.py --config-robust configs_robust/mi_unet_sample_first.json --config-attack configs_attack/mi_cvae_pgd.json
 
-python robust_train.py --config-robust configs_robust/mi_unet_sample_aug.json --config-attack configs_attack/mi_clean.json
-python robust_train.py --config-robust configs_robust/mi_unet_sample_aug.json --config-attack configs_attack/mi_cvae_pgd_735.json
-python robust_train.py --config-robust configs_robust/mi_unet_sample_aug.json --config-attack configs_attack/mi_cvae_pgd_881.json
-python robust_train.py --config-robust configs_robust/mi_unet_sample_aug.json --config-attack configs_attack/mi_cvae_pgd.json
+python robust_eval.py --config-robust configs_robust/mi_unet_sample_aug.json --config-attack configs_attack/mi_clean.json
+python robust_eval.py --config-robust configs_robust/mi_unet_sample_aug.json --config-attack configs_attack/mi_cvae_pgd_735.json
+python robust_eval.py --config-robust configs_robust/mi_unet_sample_aug.json --config-attack configs_attack/mi_cvae_pgd_881.json
+python robust_eval.py --config-robust configs_robust/mi_unet_sample_aug.json --config-attack configs_attack/mi_cvae_pgd.json
 
-python robust_train.py --config-robust configs_robust/mi_unet_cvae_aug.json --config-attack configs_attack/mi_clean.json
-python robust_train.py --config-robust configs_robust/mi_unet_cvae_aug.json --config-attack configs_attack/mi_cvae_pgd_735.json
-python robust_train.py --config-robust configs_robust/mi_unet_cvae_aug.json --config-attack configs_attack/mi_cvae_pgd_881.json
-python robust_train.py --config-robust configs_robust/mi_unet_cvae_aug.json --config-attack configs_attack/mi_cvae_pgd.json
+python robust_eval.py --config-robust configs_robust/mi_unet_cvae_aug.json --config-attack configs_attack/mi_clean.json
+python robust_eval.py --config-robust configs_robust/mi_unet_cvae_aug.json --config-attack configs_attack/mi_cvae_pgd_735.json
+python robust_eval.py --config-robust configs_robust/mi_unet_cvae_aug.json --config-attack configs_attack/mi_cvae_pgd_881.json
+python robust_eval.py --config-robust configs_robust/mi_unet_cvae_aug.json --config-attack configs_attack/mi_cvae_pgd.json
 
-python robust_train.py --config-robust configs_robust/mi_unet_cvae_attack.json --config-attack configs_attack/mi_clean.json
-python robust_train.py --config-robust configs_robust/mi_unet_cvae_attack.json --config-attack configs_attack/mi_cvae_pgd_735.json
-python robust_train.py --config-robust configs_robust/mi_unet_cvae_attack.json --config-attack configs_attack/mi_cvae_pgd_881.json
-python robust_train.py --config-robust configs_robust/mi_unet_cvae_attack.json --config-attack configs_attack/mi_cvae_pgd.json
+python robust_eval.py --config-robust configs_robust/mi_unet_cvae_attack.json --config-attack configs_attack/mi_clean.json
+python robust_eval.py --config-robust configs_robust/mi_unet_cvae_attack.json --config-attack configs_attack/mi_cvae_pgd_735.json
+python robust_eval.py --config-robust configs_robust/mi_unet_cvae_attack.json --config-attack configs_attack/mi_cvae_pgd_881.json
+python robust_eval.py --config-robust configs_robust/mi_unet_cvae_attack.json --config-attack configs_attack/mi_cvae_pgd.json
 
 # Train and get certified radius of classifier with randomized smoothing (Figure 16 of paper)
 python robust_train.py --config-robust configs_robust/mi_unet_smoothing_690.json
